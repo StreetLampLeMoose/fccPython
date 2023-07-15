@@ -1,4 +1,4 @@
-def arithmetic_arranger1(problems):
+def arithmetic_arranger1(problems): ##this function runs the other functions and returns a formatted list
     if errorHandling(problems) != 0:
       print(errorHandling(problems))
       quit()
@@ -7,7 +7,7 @@ def arithmetic_arranger1(problems):
     lineList = arranger(problemList,answerList)
     return lineList
 
-def dataCleaner (problems):
+def dataCleaner (problems): ##this function takes problems and splits into a more easily workable list
   cleanedData = []
   i=0
   for x in problems:
@@ -15,7 +15,7 @@ def dataCleaner (problems):
     i +=1
   return cleanedData
 
-def answers(problems):
+def answers(problems): ##this function returns the answers to the problems as a list
   i=0
   answerList = []
   for x in problems: 
@@ -29,7 +29,7 @@ def answers(problems):
     i+=1
   return answerList
 
-def arranger(problems,answers):
+def arranger(problems,answers): ##this function takes the list of problems and answers and formats them. 
   line1 = []
   line2 = []
   line3 = []
@@ -43,7 +43,7 @@ def arranger(problems,answers):
     line3String = ""
     line4String = ""
     answerString = str(answers[i])
-    gridSize = max(len(x[0]), len(x[2]) +2 , len(answerString))
+    gridSize = max(len(x[0]), len(x[2]) +2 , len(answerString)) 
     line1String = line1String+ x[0] 
     line2StringHead = line2StringHead + x[1]
     line2StringTail = line2StringTail+ x[2]
@@ -64,7 +64,7 @@ def arranger(problems,answers):
     i+= 1
   return [line1, line2, line3,line4]
 
-def errorHandling(problems):
+def errorHandling(problems): ##this function checks for errors in the input
     if len(problems) > 5 :
       return("Error: Too many problems")
     cleanedData = dataCleaner(problems)
